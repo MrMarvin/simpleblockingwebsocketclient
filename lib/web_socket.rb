@@ -85,6 +85,15 @@ class WebSocket
       @received = []
       @buffer = ""
       @closing_started = false
+      
+      if block_given?
+        @rth = Thread.new do
+          while data = receive()
+            yield data
+          end
+        end
+      end
+      
     end
 
     attr_reader(:server, :header, :path)

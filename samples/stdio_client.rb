@@ -9,17 +9,13 @@ if ARGV.size != 1
   exit(1)
 end
 
-client = WebSocket.new(ARGV[0])
+client = WebSocket.new(ARGV[0]) { |data| puts data}
 puts("Connected")
-Thread.new() do
-  while data = client.receive()
-    printf("Received: %p\n", data)
-  end
-  exit()
-end
+
 $stdin.each_line() do |line|
   data = line.chomp()
   client.send(data)
   printf("Sent: %p\n", data)
 end
+puts "closing connection..."
 client.close()
