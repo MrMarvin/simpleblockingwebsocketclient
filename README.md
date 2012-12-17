@@ -1,25 +1,22 @@
-HTML5 Web Socket client implementation in Ruby.
+# HTML5 WebSocket client implementation in Ruby.
 
-For server and non-blocking client, em-websocket ( https://github.com/igrigorik/em-websocket ) may be a better choice, especially if you want to use EventMachine.
+__For server and non-blocking client, em-websocket ( https://github.com/igrigorik/em-websocket ) may be a better choice, especially if you want to use EventMachine.__
 
-* Usage
+## Usage
 
-Client:
+  Connects to Web Socket server at host example.com port 10081.
+  `client = WebSocket.new("ws://example.com:10081/") { |msg| puts message}`
+  The block specifies what should be done with received messages. In this case they are simply printed to stdout.
 
-  # Connects to Web Socket server at host example.com port 10081.
-  client = WebSocket.new("ws://example.com:10081/") { |msg| puts message}
-  # The block specifies what should be done with received messages. In this case 
-  # they are simply printed to stdout.
-
-  # For sending data, use send().  
-  client.send("Hello")
+  For sending data, use send():
+  `client.send("Hello")`
   
-  # See the samples/ directory for actual example code.
+  See the samples/ directory for actual example code.
 
-* Supported WebSocket protocol versions
+## Supported WebSocket protocol versions
 
 WebSocket client speaks version hixie-76.
 
-* License
+## License
 
 New BSD License.
