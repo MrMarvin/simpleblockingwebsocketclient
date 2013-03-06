@@ -5,7 +5,7 @@ __For server and non-blocking client, em-websocket ( https://github.com/igrigori
 ## Usage
 
   Connects to Web Socket server at host example.com port 10081.
-  `client = WebSocket.new("ws://example.com:10081/") { |msg| puts message}`
+  `client = Net::WS.new("ws://example.com:10081/") { |msg| puts message}`
   The block specifies what should be done with received messages. In this case they are simply printed to stdout.
 
   For sending data, use send():
@@ -15,7 +15,7 @@ __For server and non-blocking client, em-websocket ( https://github.com/igrigori
 
 ## Supported WebSocket protocol versions
 
-WebSocket client speaks version hixie-76.
+WebSocket client speaks version 13 (RFC 6455).
 
 ## License
 
