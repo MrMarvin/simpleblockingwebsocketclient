@@ -1,0 +1,14 @@
+PATH
+  remote: .
+  specs:
+    simpleblockingwebsocketclient (0.42)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  simpleblockingwebsocketclient!
