@@ -1,15 +1,13 @@
-# Copyright: Hiroshi Ichikawa <http://gimite.net/en/>
-# Lincense: New BSD Lincense
 
 $LOAD_PATH << File.dirname(__FILE__) + "/../lib"
-require "web_socket"
+require "ws"
 
 if ARGV.size != 1
   $stderr.puts("Usage: ruby samples/stdio_client.rb ws://HOST:PORT/")
   exit(1)
 end
 
-client = WebSocket.new(ARGV[0]) { |data| puts data}
+client = Net::WS.new(ARGV[0]) { |data| puts data }
 puts("Connected")
 
 $stdin.each_line() do |line|
